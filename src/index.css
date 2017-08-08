@@ -1,5 +1,109 @@
 body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto Slab', georgia, serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #3d525c;
+    -webkit-font-smoothing: antialiased;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6{
+    padding: 0;
+    margin: 0;
+}
+
+.app {
+    display: grid;
+    gird-gap: 1rem;
+    gird-template-columns: 1fr;
+    grid-template-areas:
+    "header"
+    "addproject"
+    "projects"
+    "todos"
+    "footer";
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+@media screen and (min-width:30rem) {
+    .app {
+        gird-template-columns: minmax(50px,1fr) repeat(2,3fr) repeat(3, minmax(50px,1fr));
+        grid-template-areas:
+        "header header header header header header"
+        "projects projects projects projects addproject addproject"
+        "todos todos todos todos todos todos"
+        "footer footer footer footer footer footer";
+    }
+}
+
+header {
+    grid-area: header;
+    text-align: center;
+    padding: 2rem 0;
+
+    border: 1px solid magenta;
+}
+
+.heading {
+    font-size: calc(2.7rem + .15vw);
+    font-weight: 400;
+    line-height: 1.2;
+    margin: 0 0 .5rem;
+    padding: 0;
+}
+
+.add-project {
+    grid-area: addproject;
+
+    border: 1px solid magenta;
+}
+
+.projects {
+    grid-area: projects;
+    padding: 0 2rem 2rem 2rem;
+
+    border: 1px solid magenta;
+}
+
+.projects h3 {
+    padding: 0 0 1rem;
+    border-bottom: 2px solid #3d525c;
+}
+
+.projects ul {
+    padding: 1rem 0 0 0;
+}
+
+.project {
+}
+
+.todos {
+    grid-area: todos;
+    border: 1px solid magenta;
+}
+
+.todo {
+    display: none;
+}
+
+footer {
+    grid-area: footer;
+    text-align: center;
+    padding: 3rem 0;
+    font-weight: 600;
+
+    border: 1px solid magenta;
+}
+
+footer span {
+    color: #1c9dff;
 }
