@@ -9,7 +9,9 @@ class ProjectItem extends Component {
     render() {
         return (
             <li className="project">
-                <strong>{this.props.project.title}</strong> : {this.props.project.category} <button onClick={this.deleteProject.bind(this, this.props.project.id)}>X</button>
+                <div>{this.props.project.title}</div>
+                <div>{this.props.project.category}</div>
+                <button onClick={this.deleteProject.bind(this, this.props.project.id)}>X</button>
             </li>
         );
     }

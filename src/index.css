@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    padding: 0;
+    padding: 2rem;
     font-family: 'Roboto Slab', georgia, serif;
     font-size: 16px;
     line-height: 1.6;
@@ -34,7 +34,180 @@ h1, h2, h3, h4, h5, h6{
     margin: 0 auto;
 }
 
-@media screen and (min-width:30rem) {
+header {
+    grid-area: header;
+    text-align: center;
+    padding: 2rem 0;
+    margin-bottom: 2rem;
+    background-color: rgba(61, 82, 92, 0.04);
+}
+
+header h1 {
+    font-size: calc(2.7rem + .15vw);
+    font-weight: 900;
+    line-height: 1.2;
+    margin: 0;
+    padding: 0;
+}
+
+header h1 span {
+    color: #1c9dff;
+}
+
+header p{
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+.add-project {
+    grid-area: addproject;
+    margin-bottom: 2rem;
+}
+
+.add-project h3 {
+    font-size: 28px;
+    font-weight: 100;
+    padding: 0 0 0.5rem;
+    border-bottom: 1px solid rgba(61, 82, 92, 0.1);
+}
+
+.add-project form {
+    padding: 1rem 0 0 0;
+}
+
+.add-project form div{
+    padding: 0;
+    margin-bottom: 1rem;
+}
+
+.add-project form label{
+    display: block;
+}
+
+.add-project form input, .add-project form select{
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    font-size: 1rem;
+    display: block;
+    padding: 0;
+    border-radius: 4px;
+    width: 100%;
+    background: #f8f8f8;
+    height: 36px;
+}
+
+.add-project form input[type="submit"] {
+    border: none;
+    font-size: 1rem;
+    color: white;
+    background: #5bcc95;
+    display: block;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.projects {
+    grid-area: projects;
+    padding: 0 0 2rem 0;
+}
+
+.projects h3 {
+    font-size: 28px;
+    font-weight: 100;
+    padding: 0 0 0.5rem;
+    border-bottom: 1px solid rgba(61, 82, 92, 0.1);
+}
+
+.projects ul {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0 0 0;
+}
+
+.project{
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    margin: 0.5rem 0 0 0;
+}
+
+.project div:first-of-type{
+    min-width: 55%;
+    font-weight: bold;
+}
+
+.project div{
+    flex-grow: 1;
+}
+
+.project button {
+    width: 30px;
+    background: #ff1840;
+    border: none;
+    font-weight: bold;
+    color: white;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.todos {
+    grid-area: todos;
+}
+
+.todos h3 {
+    text-align: center;
+    font-size: 38px;
+    font-weight: 100;
+    padding: 0 0 0.5rem;
+    border-bottom: 1px solid rgba(61, 82, 92, 0.1);
+}
+
+.todos ul {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0 0 0;
+}
+
+.todo {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    margin: 0.5rem 0 0 0;
+}
+
+.todo div{
+    flex-grow: 1;
+}
+
+.todo button {
+    width: 170px;
+    background: #bdcbd8;
+    border: none;
+    font-weight: 600;
+    color: white;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 0.3rem;
+}
+
+footer {
+    grid-area: footer;
+    text-align: center;
+    padding: 3rem 0;
+    font-weight: 600;
+    margin-top: 2rem;
+    background-color: rgba(61, 82, 92, 0.04);
+}
+
+footer span {
+    color: #1c9dff;
+}
+
+@media screen and (min-width:768px) {
     .app {
         gird-template-columns: minmax(50px,1fr) repeat(2,3fr) repeat(3, minmax(50px,1fr));
         grid-template-areas:
@@ -43,67 +216,8 @@ h1, h2, h3, h4, h5, h6{
         "todos todos todos todos todos todos"
         "footer footer footer footer footer footer";
     }
-}
 
-header {
-    grid-area: header;
-    text-align: center;
-    padding: 2rem 0;
-
-    border: 1px solid magenta;
-}
-
-.heading {
-    font-size: calc(2.7rem + .15vw);
-    font-weight: 400;
-    line-height: 1.2;
-    margin: 0 0 .5rem;
-    padding: 0;
-}
-
-.add-project {
-    grid-area: addproject;
-
-    border: 1px solid magenta;
-}
-
-.projects {
-    grid-area: projects;
-    padding: 0 2rem 2rem 2rem;
-
-    border: 1px solid magenta;
-}
-
-.projects h3 {
-    padding: 0 0 1rem;
-    border-bottom: 2px solid #3d525c;
-}
-
-.projects ul {
-    padding: 1rem 0 0 0;
-}
-
-.project {
-}
-
-.todos {
-    grid-area: todos;
-    border: 1px solid magenta;
-}
-
-.todo {
-    display: none;
-}
-
-footer {
-    grid-area: footer;
-    text-align: center;
-    padding: 3rem 0;
-    font-weight: 600;
-
-    border: 1px solid magenta;
-}
-
-footer span {
-    color: #1c9dff;
+    .projects {
+        padding: 0 4rem 2rem 0;
+    }
 }

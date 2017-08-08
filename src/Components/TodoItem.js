@@ -5,9 +5,8 @@ class TodoItem extends Component {
     render() {
         return (
             <li className="todo">
-                <div><strong>User ID:</strong> {this.props.todo.userId}</div>
-                <div><strong>Task:</strong> {this.props.todo.title}</div>
-                <div><strong>Completed:</strong> {this.props.todo.completed}</div>
+                <div>{this.props.todo.title}</div>
+                <button>Mark as complete</button>
             </li>
         );
     }

@@ -74,10 +74,11 @@ class App extends Component {
         return (
         <div className="app">
             <header>
-                <h1 className="heading">GUI App</h1>
+                <h1 className="heading"><span>GUI.</span>Developer</h1>
+                <p>Projects and Todos</p>
             </header>
-            <AddProject addProject={this.handleAddProject.bind(this)}/>
             <Projects projects={this.state.projects} onDelete={this.handleDeleteProject.bind(this)}/>
+            <AddProject addProject={this.handleAddProject.bind(this)}/>
             <Todos todos={this.state.todos}/>
             <footer>Made by <span>GUI.</span>Developer</footer>
         </div>
