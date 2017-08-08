@@ -28,6 +28,7 @@ h1, h2, h3, h4, h5, h6{
     "addproject"
     "projects"
     "todos"
+    "addtodo"
     "footer";
     width: 100%;
     max-width: 900px;
@@ -63,49 +64,116 @@ header p{
 .add-project {
     grid-area: addproject;
     margin-bottom: 2rem;
+    background: #f7f8f9;
+    padding: 2rem;
 }
 
 .add-project h3 {
-    font-size: 28px;
+    text-align: center;
+    font-size: 34px;
     font-weight: 100;
-    padding: 0 0 0.5rem;
-    border-bottom: 1px solid rgba(61, 82, 92, 0.1);
+    color: #d4d4d4;
+    margin-bottom: 2rem;
 }
 
 .add-project form {
-    padding: 1rem 0 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.add-project form div{
+.add-project div{
     padding: 0;
     margin-bottom: 1rem;
 }
 
-.add-project form label{
+.add-project label{
     display: block;
 }
 
-.add-project form input, .add-project form select{
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    font-size: 1rem;
-    display: block;
-    padding: 0;
-    border-radius: 4px;
-    width: 100%;
-    background: #f8f8f8;
-    height: 36px;
+.add-project input{
+    font-size: 54px;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #617782;
+    outline: none;
+    text-align: center;
+    font-family: 'Roboto Slab', georgia, serif;
+    font-weight: 100;
+    margin-bottom: 1rem;
+}
+
+.selectBox {
+    border-bottom: 1px solid #617782;
+    margin-bottom: 2rem !important;
+}
+
+.add-project form select{
+    font-size: 30px;
+    background: transparent;
+    border: none;
+    outline: none;
+    text-align: center;
+    font-family: 'Roboto Slab', georgia, serif;
+    font-weight: 100;
 }
 
 .add-project form input[type="submit"] {
     border: none;
-    font-size: 1rem;
+    font-size: 1.4rem;
     color: white;
-    background: #5bcc95;
+    background: #1c9dff;
     display: block;
-    font-weight: bold;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 3rem;
     border-radius: 4px;
     cursor: pointer;
+    font-weight: 400;
+    margin: 0;
+}
+
+.add-todo {
+    grid-area: addtodo;
+    background: #f7f8f9;
+    padding: 2rem;
+}
+
+.add-todo div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.add-todo label{
+    text-align: center;
+    font-size: 34px;
+    font-weight: 100;
+    color: #d4d4d4;
+    margin-bottom: 2rem;
+}
+
+.add-todo input{
+    font-size: 54px;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #617782;
+    outline: none;
+    text-align: center;
+    font-family: 'Roboto Slab', georgia, serif;
+    font-weight: 100;
+    margin-bottom: 2rem;
+}
+
+.add-todo input[type="submit"] {
+    border: none;
+    font-size: 1.4rem;
+    color: white;
+    background: #1c9dff;
+    display: block;
+    padding: 0.5rem 3rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 400;
+    margin: 0;
 }
 
 .projects {
@@ -114,7 +182,8 @@ header p{
 }
 
 .projects h3 {
-    font-size: 28px;
+    text-align: center;
+    font-size: 38px;
     font-weight: 100;
     padding: 0 0 0.5rem;
     border-bottom: 1px solid rgba(61, 82, 92, 0.1);
@@ -144,7 +213,7 @@ header p{
 
 .project button {
     width: 30px;
-    background: #ff1840;
+    background: #bdcbd8;
     border: none;
     font-weight: bold;
     color: white;
@@ -155,6 +224,7 @@ header p{
 
 .todos {
     grid-area: todos;
+    margin-bottom: 2rem;
 }
 
 .todos h3 {
@@ -176,6 +246,14 @@ header p{
     display: flex;
     flex-direction: row;
     margin: 0.5rem 0 0 0;
+}
+
+.todo.complete button{
+    background: #5bcc95;
+}
+
+.todo.complete div {
+    text-decoration: line-through;
 }
 
 .todo div{
@@ -207,17 +285,29 @@ footer span {
     color: #1c9dff;
 }
 
+::-webkit-input-placeholder { color: #e8e8e8; }
+::-moz-placeholder { color: #e8e8e8; }
+:-ms-input-placeholder { color: #e8e8e8; }
+:-moz-placeholder { color: #e8e8e8; }
+
+input:focus::-webkit-input-placeholder { color:transparent; }
+input:focus:-moz-placeholder { color:transparent; } /* FF 4-18 */
+input:focus::-moz-placeholder { color:transparent; } /* FF 19+ */
+input:focus:-ms-input-placeholder { color:transparent; } /* IE 10+ */
+
 @media screen and (min-width:768px) {
     .app {
         gird-template-columns: minmax(50px,1fr) repeat(2,3fr) repeat(3, minmax(50px,1fr));
         grid-template-areas:
         "header header header header header header"
-        "projects projects projects projects addproject addproject"
+        "projects projects projects projects projects projects"
+        "addproject addproject addproject addproject addproject addproject"
         "todos todos todos todos todos todos"
+        "addtodo addtodo addtodo addtodo addtodo addtodo"
         "footer footer footer footer footer footer";
     }
 
     .projects {
-        padding: 0 4rem 2rem 0;
+        padding: 0 0 2rem 0;
     }
 }

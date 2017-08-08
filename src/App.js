@@ -4,7 +4,8 @@ import uuid from 'uuid';
 import Projects from './Components/Projects';
 import AddProject from './Components/AddProject';
 import Todos from './Components/Todos';
-import { getData } from './api';
+import AddTodo from './Components/AddTodo';
+//import { getData } from './api';
 
 import './App.css';
 
@@ -20,11 +21,25 @@ class App extends Component {
     }
 
     getToDos() {
-        getData((data) => {
-            this.setState({
-                todos: JSON.parse(data),
-            });
-        });
+        // getData((data) => {
+        //     this.setState({
+        //         todos: JSON.parse(data),
+        //     });
+        // });
+        this.setState({todos: [
+            {
+                id:uuid.v4(),
+                task: "Layout initial sketches"
+            },
+            {
+                id:uuid.v4(),
+                task: "Wireframe up designs"
+            },
+            {
+                id:uuid.v4(),
+                task: "Setup project"
+            },
+        ]});
     }
 
     getProjects() {
@@ -63,11 +78,24 @@ class App extends Component {
         this.setState({projects:projects});
     }
 
+    handleAddTodo(todo) {
+        let todos = this.state.todos;
+        todos.push(todo);
+        this.setState({todos:todos});
+    }
+
     handleDeleteProject(id) {
         let projects = this.state.projects;
         let index = projects.findIndex(x => x.id === id);
         projects.splice(index, 1);
         this.setState({projects:projects});
+    }
+
+    handleMarkComplete(id) {
+        let todos = this.state.todos;
+        let index = todos.findIndex(x => x.id === id);
+        todos.splice(index, 1);
+        this.setState({todos:todos});
     }
 
     render() {
@@ -79,7 +107,8 @@ class App extends Component {
             </header>
             <Projects projects={this.state.projects} onDelete={this.handleDeleteProject.bind(this)}/>
             <AddProject addProject={this.handleAddProject.bind(this)}/>
-            <Todos todos={this.state.todos}/>
+            <Todos todos={this.state.todos} markComplete={this.handleMarkComplete.bind(this)}/>
+            <AddTodo addTodo={this.handleAddTodo.bind(this)}/>
             <footer>Made by <span>GUI.</span>Developer</footer>
         </div>
         );

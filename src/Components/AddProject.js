@@ -36,15 +36,14 @@ class AddProject extends Component {
 
         return (
             <div className="add-project">
-                <h3>Add Project</h3>
+                <h3>Add New Project</h3>
                 <form onSubmit={this.handleSubmit.bind(this)}>
                     <div>
-                        <label>Title</label>
-                        <input type="text" ref="title" />
+                        <input type="text" ref="title" placeholder="Project Title"/>
                     </div>
-                    <div>
-                        <label>Category</label>
+                    <div className="selectBox">
                         <select ref="category">
+                            <option>Choose a category</option>
                             {categoryOptions}
                         </select>
                     </div>
