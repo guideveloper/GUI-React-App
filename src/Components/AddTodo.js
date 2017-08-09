@@ -33,7 +33,6 @@ class AddTodo extends Component {
                         <input type="text" ref="title" placeholder="Task Name"/>
                         <input type="submit" value="Add" />
                     </div>
-                    
                 </form>
             </div>
         );

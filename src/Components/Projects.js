@@ -1,38 +1,66 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import uuid from 'uuid';
 
-import ProjectItem from './ProjectItem';
+import Header from './Header';
+import ProjectList from './ProjectList';
+import AddProject from './AddProject';
 
 class Projects extends Component {
-    deleteProject(id) {
-        this.props.onDelete(id);
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            projects: []
+        }
+    }
+
+    getProjects() {
+        this.setState({projects: [
+            {
+                id:uuid.v4(),
+                title: "Business Website",
+                category: "Web Design"
+            },
+            {
+                id:uuid.v4(),
+                title: "Social App",
+                category: "Mobile Development"
+            },
+            {
+                id:uuid.v4(),
+                title: "Ecommerce Shopping Cart",
+                category: "Web Development"
+            }
+        ]});
+    }
+
+    componentWillMount() {
+        this.getProjects();
+    }
+
+    handleDeleteProject(id) {
+        let projects = this.state.projects;
+        let index = projects.findIndex(x => x.id === id);
+        projects.splice(index, 1);
+        this.setState({projects:projects});
+    }
+
+    handleAddProject(project) {
+        let projects = this.state.projects;
+        projects.push(project);
+        this.setState({projects:projects});
     }
 
     render() {
-        let projectItems;
-
-        if(this.props.projects){
-            projectItems = this.props.projects.map(project => {
-                return (
-                    <ProjectItem onDelete={this.deleteProject.bind(this)} project={project} key={project.id}/>
-                );
-            });
-        }
-
         return (
-            <div className="projects">
-                <h3>Latest Projects</h3>
-                <ul>
-                    {projectItems}
-                </ul>
+            <div className="app">
+                <Header />
+                <ProjectList projects={this.state.projects} onDelete={this.handleDeleteProject.bind(this)}/>
+                <AddProject addProject={this.handleAddProject.bind(this)}/>
+                <footer>Made by <span>GUI.</span>Developer</footer>
             </div>
         );
     }
-}
-
-Projects.propTypes = {
-    projects: PropTypes.array,
-    onDelete: PropTypes.func
 }
 
 export default Projects;

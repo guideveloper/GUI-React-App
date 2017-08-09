@@ -4,16 +4,16 @@
 **/
 
 export const getData = (cb) => {
-    const todos = new XMLHttpRequest();
-    todos.open('GET', 'https://jsonplaceholder.typicode.com/todos');
+    const users = new XMLHttpRequest();
+    users.open('GET', 'https://jsonplaceholder.typicode.com/users');
 
-    todos.onreadystatechange = function() {
-        if(todos.readyState === 4) {
- 		    if(todos.status === 200) {
- 			    cb(todos.responseText);
+    users.onreadystatechange = function() {
+        if(users.readyState === 4) {
+ 		    if(users.status === 200) {
+ 			    cb(users.responseText);
 		    }
 		}
 	};
 
-	todos.send();
+	users.send();
 };
