@@ -16,10 +16,10 @@ class Index extends Component {
         return (
             <Router>
                 <div>
-                    <Route exact path="/" component={Home}/>
-                    <Route path="/latest-projects" component={Projects}/>
-                    <Route path="/todos" component={Todos}/>
-                    <Route path="/users" component={Users} />
+                    <Route exact path="./" component={Home}/>
+                    <Route path="./latest-projects" component={Projects}/>
+                    <Route path="./todos" component={Todos}/>
+                    <Route path="./users" component={Users} />
                 </div>
             </Router>
         );
