@@ -2,4 +2,4 @@
 
 - Simple project todo list
 - Add/Remove Projects
-- Add/Remove Todos (** In progress **)
+- Add/Remove Todos
